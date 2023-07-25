@@ -18,22 +18,18 @@ parsers: # array
         interval: 300
         proxies:
          - 🇭🇰香港
-         - 🎛LOAD-BALANCE
-         - 🕹Fallback
-         - DIRECT
          - 🐳台湾
          - 🇯🇵日本
          - 🇸🇬新加坡
          - 🇰🇷韩国
          - 🇺🇸美国
-         - 👨‍🎤其他节点        
+         - 👨‍🎤其他节点
+         - DIRECT 
 
       - name: 👨‍💻Github
         type: select
         proxies:
          - 🥷PROXY
-         - 🎛LOAD-BALANCE
-         - 🕹Fallback
          - DIRECT
          - 🇭🇰香港
          - 🐳台湾
@@ -42,13 +38,12 @@ parsers: # array
          - 🇰🇷韩国
          - 🇺🇸美国
          - 👨‍🎤其他节点
+         
 
       - name: 🎎YouTube
         type: select
         proxies:
          - 🥷PROXY
-         - 🎛LOAD-BALANCE
-         - 🕹Fallback
          - DIRECT
          - 🇭🇰香港
          - 🐳台湾
@@ -57,14 +52,13 @@ parsers: # array
          - 🇰🇷韩国
          - 🇺🇸美国
          - 👨‍🎤其他节点
+         
 
       - name: 🤖OpenAI
         type: select
         proxies:
          - 🇺🇸美国
          - 🥷PROXY
-         - 🎛LOAD-BALANCE
-         - 🕹Fallback
          - DIRECT
          - 🇭🇰香港
          - 🐳台湾
@@ -72,13 +66,12 @@ parsers: # array
          - 🇸🇬新加坡
          - 🇰🇷韩国
          - 👨‍🎤其他节点
+         
 
       - name: 🚅Google
         type: select
         proxies:
          - 🥷PROXY
-         - 🎛LOAD-BALANCE
-         - 🕹Fallback
          - DIRECT
          - 🇭🇰香港
          - 🐳台湾
@@ -88,12 +81,11 @@ parsers: # array
          - 🇺🇸美国
          - 👨‍🎤其他节点
 
+
       # - name: 📽Netflix
       #   type: select
       #   proxies:
       #    - 🥷PROXY
-      #    - 🎛LOAD-BALANCE
-      #    - 🕹Fallback
       #    - DIRECT
       #    - 🇭🇰香港
       #    - 🐳台湾
@@ -107,8 +99,6 @@ parsers: # array
         type: select
         proxies:
          - 🥷PROXY
-         - 🎛LOAD-BALANCE
-         - 🕹Fallback
          - DIRECT
          - 🇭🇰香港
          - 🐳台湾
@@ -117,13 +107,13 @@ parsers: # array
          - 🇰🇷韩国
          - 🇺🇸美国
          - 👨‍🎤其他节点
+         
 
       - name: 🐟漏网之鱼
         type: select
         proxies:
          - DIRECT
-         - 🎛LOAD-BALANCE
-         - 🕹Fallback
+         - 🥷PROXY
          - 🇭🇰香港
          - 🐳台湾
          - 🇯🇵日本
@@ -131,6 +121,7 @@ parsers: # array
          - 🇰🇷韩国
          - 🇺🇸美国
          - 👨‍🎤其他节点 
+         
 
       - name: 🎛LOAD-BALANCE
         type: load-balance
@@ -199,9 +190,6 @@ parsers: # array
           # - 节点名称或其他分组套娃
           
       commands:
-        - proxy-groups.(🎛LOAD-BALANCE).proxies=[]proxyNames
-        - proxy-groups.(🕹Fallback).proxies=[]proxyNames
-        - proxy-groups.(⏳YouTube-Url-Test).proxies=[]proxyNames
         - proxy-groups.🇭🇰香港.proxies=[]proxyNames|港|香港|🇭🇰|HK|Hong Kong # 向指定策略组添加订阅中的节点名，可使用正则过滤
         - proxy-groups.🐳台湾.proxies=[]proxyNames|台|台湾|新北|彰化|TW|Taiwan
         - proxy-groups.🇯🇵日本.proxies=[]proxyNames|日|日本|🇯🇵|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan
