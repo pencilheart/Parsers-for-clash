@@ -122,18 +122,6 @@ parsers: # array
          - 🇺🇸美国
          - 👨‍🎤其他节点 
          
-
-      - name: 🎛LOAD-BALANCE
-        type: load-balance
-        url: http://www.gstatic.com/generate_204
-        interval: 600
-
-      - name: 🕹Fallback
-        type: fallback
-        url: http://www.gstatic.com/generate_204
-        interval: 60
-        lazy: true
-        tolerance: 30
         
       - name: 🚦AD
         type: select
