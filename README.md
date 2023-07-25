@@ -25,7 +25,8 @@
 - 广告屏蔽
 
 # 界面效果
-![界面效果图](界面效果图.png)
+![界面效果图](https://github.com/pencilheart/Parsers-for-clash/assets/61617063/e313f642-1198-4d6a-8b64-5ea1f202e8b9)
+
 
 # 用法
 直接复制parsers.yml的内容到clash的“setting--profiles--parsers”中，执行“profiles”的连接更新即可
