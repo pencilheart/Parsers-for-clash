@@ -17,26 +17,23 @@ parsers: # array
         url: http://www.google.com/generate_204
         interval: 300
         proxies:
-         - 🚀URL-TEST
+         - 🇭🇰香港
          - 🎛LOAD-BALANCE
          - 🕹Fallback
-         - 👆SELECT
          - DIRECT
-         - 🇭🇰香港
          - 🐳台湾
          - 🇯🇵日本
          - 🇸🇬新加坡
          - 🇰🇷韩国
          - 🇺🇸美国
-         - 👨‍🎤其他
+         - 👨‍🎤其他节点        
 
-      - name: 👆SELECT
+      - name: 👨‍💻Github
         type: select
         proxies:
-         - 🚀URL-TEST
+         - 🥷PROXY
          - 🎛LOAD-BALANCE
          - 🕹Fallback
-         - ⏳YouTube-Url-Test
          - DIRECT
          - 🇭🇰香港
          - 🐳台湾
@@ -44,15 +41,97 @@ parsers: # array
          - 🇸🇬新加坡
          - 🇰🇷韩国
          - 🇺🇸美国
-         - 👨‍🎤其他
+         - 👨‍🎤其他节点
 
-      - name: 🚀URL-TEST
-        type: url-test
-        url: http://www.google.com/generate_204
-        interval: 120
-        lazy: true
-        tolerance: 100
-        
+      - name: 🎎YouTube
+        type: select
+        proxies:
+         - 🥷PROXY
+         - 🎛LOAD-BALANCE
+         - 🕹Fallback
+         - DIRECT
+         - 🇭🇰香港
+         - 🐳台湾
+         - 🇯🇵日本
+         - 🇸🇬新加坡
+         - 🇰🇷韩国
+         - 🇺🇸美国
+         - 👨‍🎤其他节点
+
+      - name: 🤖OpenAI
+        type: select
+        proxies:
+         - 🇺🇸美国
+         - 🥷PROXY
+         - 🎛LOAD-BALANCE
+         - 🕹Fallback
+         - DIRECT
+         - 🇭🇰香港
+         - 🐳台湾
+         - 🇯🇵日本
+         - 🇸🇬新加坡
+         - 🇰🇷韩国
+         - 👨‍🎤其他节点
+
+      - name: 🚅Google
+        type: select
+        proxies:
+         - 🥷PROXY
+         - 🎛LOAD-BALANCE
+         - 🕹Fallback
+         - DIRECT
+         - 🇭🇰香港
+         - 🐳台湾
+         - 🇯🇵日本
+         - 🇸🇬新加坡
+         - 🇰🇷韩国
+         - 🇺🇸美国
+         - 👨‍🎤其他节点
+
+      # - name: 📽Netflix
+      #   type: select
+      #   proxies:
+      #    - 🥷PROXY
+      #    - 🎛LOAD-BALANCE
+      #    - 🕹Fallback
+      #    - DIRECT
+      #    - 🇭🇰香港
+      #    - 🐳台湾
+      #    - 🇯🇵日本
+      #    - 🇸🇬新加坡
+      #    - 🇰🇷韩国
+      #    - 🇺🇸美国
+      #    - 👨‍🎤其他节点
+
+      - name: 🔍Bing
+        type: select
+        proxies:
+         - 🥷PROXY
+         - 🎛LOAD-BALANCE
+         - 🕹Fallback
+         - DIRECT
+         - 🇭🇰香港
+         - 🐳台湾
+         - 🇯🇵日本
+         - 🇸🇬新加坡
+         - 🇰🇷韩国
+         - 🇺🇸美国
+         - 👨‍🎤其他节点
+
+      - name: 🐟漏网之鱼
+        type: select
+        proxies:
+         - DIRECT
+         - 🎛LOAD-BALANCE
+         - 🕹Fallback
+         - 🇭🇰香港
+         - 🐳台湾
+         - 🇯🇵日本
+         - 🇸🇬新加坡
+         - 🇰🇷韩国
+         - 🇺🇸美国
+         - 👨‍🎤其他节点 
+
       - name: 🎛LOAD-BALANCE
         type: load-balance
         url: http://www.gstatic.com/generate_204
@@ -65,130 +144,6 @@ parsers: # array
         lazy: true
         tolerance: 30
         
-
-      - name: 🎎YouTube
-        type: select
-        proxies:
-         - 🚀URL-TEST
-         - 🎛LOAD-BALANCE
-         - 🕹Fallback
-         - ⏳YouTube-Url-Test
-         - 👆SELECT
-         - DIRECT
-         - 🇭🇰香港
-         - 🐳台湾
-         - 🇯🇵日本
-         - 🇸🇬新加坡
-         - 🇰🇷韩国
-         - 🇺🇸美国
-         - 👨‍🎤其他
-         
-      - name: ⏳YouTube-Url-Test
-        type: url-test
-        url: https://www.youtube.com/
-        interval: 120
-        lazy: true
-        tolerance: 100
-        proxies:
-            - REJECT
-            - DIRECT
-
-      - name: 📽Netflix
-        type: select
-        proxies:
-         - 🚀URL-TEST
-         - 🎛LOAD-BALANCE
-         - 🕹Fallback
-         - 👆SELECT
-         - DIRECT
-         - 🇭🇰香港
-         - 🐳台湾
-         - 🇯🇵日本
-         - 🇸🇬新加坡
-         - 🇰🇷韩国
-         - 🇺🇸美国
-         - 👨‍🎤其他
-
-      - name: 🤖OpenAI
-        type: select
-        proxies:
-         - 🚀URL-TEST
-         - 🎛LOAD-BALANCE
-         - 🕹Fallback
-         - 👆SELECT
-         - DIRECT
-         - 🇭🇰香港
-         - 🐳台湾
-         - 🇯🇵日本
-         - 🇸🇬新加坡
-         - 🇰🇷韩国
-         - 🇺🇸美国
-         - 👨‍🎤其他
-
-      - name: 🔍Bing
-        type: select
-        proxies:
-         - 🚀URL-TEST
-         - 🎛LOAD-BALANCE
-         - 🕹Fallback
-         - 👆SELECT
-         - DIRECT
-         - 🇭🇰香港
-         - 🐳台湾
-         - 🇯🇵日本
-         - 🇸🇬新加坡
-         - 🇰🇷韩国
-         - 🇺🇸美国
-         - 👨‍🎤其他
-
-      - name: 🚅Google
-        type: select
-        proxies:
-         - 🚀URL-TEST
-         - 🎛LOAD-BALANCE
-         - 🕹Fallback
-         - 👆SELECT
-         - DIRECT
-         - 🇭🇰香港
-         - 🐳台湾
-         - 🇯🇵日本
-         - 🇸🇬新加坡
-         - 🇰🇷韩国
-         - 🇺🇸美国
-         - 👨‍🎤其他
-
-      - name: 🛀Bilibiliintl
-        type: select
-        proxies:
-         - 🚀URL-TEST
-         - 🎛LOAD-BALANCE
-         - 🕹Fallback
-         - 👆SELECT
-         - DIRECT
-         - 🇭🇰香港
-         - 🐳台湾
-         - 🇯🇵日本
-         - 🇸🇬新加坡
-         - 🇰🇷韩国
-         - 🇺🇸美国
-         - 👨‍🎤其他
-
-      - name: 🦤Twitter
-        type: select
-        proxies:
-         - 🚀URL-TEST
-         - 🎛LOAD-BALANCE
-         - 🕹Fallback
-         - 👆SELECT
-         - DIRECT
-         - 🇭🇰香港
-         - 🐳台湾
-         - 🇯🇵日本
-         - 🇸🇬新加坡
-         - 🇰🇷韩国
-         - 🇺🇸美国
-         - 👨‍🎤其他
-
       - name: 🚦AD
         type: select
         proxies:
@@ -226,7 +181,7 @@ parsers: # array
         url: http://www.google.com/generate_204
         interval: 300
       
-      - name: 👨‍🎤其他
+      - name: 👨‍🎤其他节点
         type: url-test
         url: http://www.google.com/generate_204
         interval: 300
@@ -244,7 +199,6 @@ parsers: # array
           # - 节点名称或其他分组套娃
           
       commands:
-        - proxy-groups.(🚀URL-TEST).proxies=[]proxyNames
         - proxy-groups.(🎛LOAD-BALANCE).proxies=[]proxyNames
         - proxy-groups.(🕹Fallback).proxies=[]proxyNames
         - proxy-groups.(⏳YouTube-Url-Test).proxies=[]proxyNames
@@ -254,7 +208,7 @@ parsers: # array
         - proxy-groups.🇰🇷韩国.proxies=[]proxyNames|韩|韓|韩国|🇰🇷|KR|Korea|KOR|首尔
         - proxy-groups.🇸🇬新加坡.proxies=[]proxyNames|新加坡|🇸🇬|坡|狮城|SG|Singapore
         - proxy-groups.🇺🇸美国.proxies=[]proxyNames|美|美国|🇺🇸|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States
-        - proxy-groups.👨‍🎤其他.proxies=[]proxyNames|^[^香日台新韩美]*$ # 这个可以自定义，这个正则的意思是排除节点名字有“香日台新韩美”的节点。
+        - proxy-groups.👨‍🎤其他节点.proxies=[]proxyNames|^[^香日台新韩美]*$ # 这个可以自定义，这个正则的意思是排除节点名字有“香日台新韩美”的节点。
         - mixed-port=7890
 
        # 为各个策略组添加一个DIRECT，避免机场节点无法匹配上面的正则筛选而导致配置出错。应该有其他办法避免，但是我不会。
@@ -264,7 +218,7 @@ parsers: # array
         - proxy-groups.🇰🇷韩国.proxies.0+REJECT
         - proxy-groups.🇸🇬新加坡.proxies.0+REJECT
         - proxy-groups.🇺🇸美国.proxies.0+REJECT
-        - proxy-groups.👨‍🎤其他.proxies.0+REJECT
+        - proxy-groups.👨‍🎤其他节点.proxies.0+REJECT
 
         # - proxy-groups.节点名字.proxies.0+DIRECT # 向指定分组第一个位置添加一个 DIRECT 节点名
         # 一些可能用到的正则过滤节点示例，使分组更细致
@@ -284,12 +238,10 @@ parsers: # array
         - DOMAIN-SUFFIX,jdev.tw,🥷PROXY
         - DOMAIN-SUFFIX,omnivore.app,🥷PROXY
         - RULE-SET,youtube,🎎YouTube
-        - RULE-SET,netflix,📽Netflix
+        # - RULE-SET,netflix,📽Netflix
         - RULE-SET,openai,🤖OpenAI
         - RULE-SET,bing,🔍Bing
-        - RULE-SET,bilibiliintl,🛀Bilibiliintl
-        - RULE-SET,twitter,🦤Twitter
-        - RULE-SET,github,🥷PROXY
+        - RULE-SET,github,👨‍💻Github
         - RULE-SET,applications,DIRECT
         - DOMAIN,clash.razord.top,DIRECT
         - DOMAIN,yacd.haishan.me,DIRECT
@@ -310,7 +262,7 @@ parsers: # array
         - GEOIP,CN,DIRECT
         - RULE-SET,direct,DIRECT
         - RULE-SET,proxy,🥷PROXY
-        - MATCH,👆SELECT # ⭐️⭐️规则之外的，在这里来修改是白名单模式还是黑名单模式，具体在“👆SELECT”选择代理或直连。
+        - MATCH,🐟漏网之鱼 # ⭐️⭐️规则之外的，在这里来修改是白名单模式还是黑名单模式，具体在“🐟漏网之鱼”选择代理或直连。
 
       # 添加规则集
         # DOMAIN-SUFFIX：域名后缀匹配
@@ -439,12 +391,12 @@ parsers: # array
           path: ./ruleset/applications.yaml
           interval: 86400
 
-        netflix: # 奈飞的分流规则
-          type: http
-          behavior: classical
-          url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Netflix/Netflix.yaml"
-          path: ./ruleset/netflix.yaml
-          interval: 86400
+        # netflix: # 奈飞的分流规则
+        #   type: http
+        #   behavior: classical
+        #   url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Netflix/Netflix.yaml"
+        #   path: ./ruleset/netflix.yaml
+        #   interval: 86400
 
         bing: # Bing的分流规则
           type: http
@@ -466,20 +418,7 @@ parsers: # array
           url: "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.yaml"
           path: ./ruleset/youtube.yaml
           interval: 86400    
-
-        bilibiliintl: # BiliBiliIntl的分流规则
-          type: http
-          behavior: classical
-          url: "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBiliIntl/BiliBiliIntl.yaml"
-          path: ./ruleset/bilibiliintl.yaml
-          interval: 86400    
-
-        twitter: # twitter的分流规则
-          type: http
-          behavior: classical
-          url: "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter.yaml"
-          path: ./ruleset/twitter.yaml
-          interval: 86400    
+   
 
         github: # github的分流规则
           type: http
