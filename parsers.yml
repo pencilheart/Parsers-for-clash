@@ -277,6 +277,10 @@ parsers: # array
         
   # 添加规则
       prepend-rules: # 规则由上往下遍历，如上面规则已经命中，则不再往下处理
+        # pencilheart自用
+        - DOMAIN-KEYWORD,appstorrent,DIRECT
+        - DOMAIN-KEYWORD,shapr3d,DIRECT
+        # 代码库
         - DOMAIN-SUFFIX,jdev.tw,🥷PROXY
         - DOMAIN-SUFFIX,omnivore.app,🥷PROXY
         - RULE-SET,youtube,🎎YouTube
