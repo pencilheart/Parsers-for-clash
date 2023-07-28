@@ -94,7 +94,21 @@ parsers: # array
       #    - 🇰🇷韩国
       #    - 🇺🇸美国
       #    - 👨‍🎤其他节点
+      
 
+      - name: 📽影视
+        type: select
+        proxies:
+         - DIRECT
+         - 🥷PROXY
+         - 🇭🇰香港
+         - 🐳台湾
+         - 🇯🇵日本
+         - 🇸🇬新加坡
+         - 🇰🇷韩国
+         - 🇺🇸美国
+         - 👨‍🎤其他节点
+         
       - name: 🔍Bing
         type: select
         proxies:
@@ -121,7 +135,7 @@ parsers: # array
          - 🇰🇷韩国
          - 🇺🇸美国
          - 👨‍🎤其他节点 
-         
+
         
       - name: 🚦AD
         type: select
@@ -211,6 +225,7 @@ parsers: # array
         - DOMAIN-KEYWORD,appstorrent,DIRECT
         - DOMAIN-KEYWORD,shapr3d,DIRECT
         - DOMAIN-KEYWORD,amysecure,🥷PROXY
+        - DOMAIN-KEYWORD,hss10,📽影视 #爱壹帆视频
         # 代码库
         - DOMAIN-SUFFIX,jdev.tw,🥷PROXY
         - DOMAIN-SUFFIX,omnivore.app,🥷PROXY
