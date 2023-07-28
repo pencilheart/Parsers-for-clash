@@ -28,6 +28,13 @@
 ps：我用的是Clash for Windows
 ![image](https://github.com/iczrac/Parsers-for-clash/assets/73928031/2cf51196-ded5-4cfe-b78b-445410a05bd2)
 
+# [safari翻译失效](https://github.com/ripperhe/Bob/issues/405)
+CFW设置中的system proxy->bypass domain加入以下，使系统翻译服务不走代理
+```
+- "sequoia.apple.com"
+- "seed-sequoia.siri.apple.com"
+```
+
 # 特别鸣谢
 来自网络的各方力量
 （按照内容更新，陆续更新技术贡献的各方名录）
