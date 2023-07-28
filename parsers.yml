@@ -210,6 +210,7 @@ parsers: # array
         # pencilheart自用
         - DOMAIN-KEYWORD,appstorrent,DIRECT
         - DOMAIN-KEYWORD,shapr3d,DIRECT
+        - DOMAIN-KEYWORD,amysecure,🥷PROXY
         # 代码库
         - DOMAIN-SUFFIX,jdev.tw,🥷PROXY
         - DOMAIN-SUFFIX,omnivore.app,🥷PROXY
