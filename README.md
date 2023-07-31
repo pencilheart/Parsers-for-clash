@@ -19,7 +19,7 @@
 - 广告屏蔽
 
 # 界面效果
-![界面效果图](https://github.com/pencilheart/Parsers-for-clash/assets/61617063/7ff392aa-64c0-4e6e-8a1a-cade722dad88)
+![界面效果图](https://github.com/pencilheart/Parsers-for-clash/assets/61617063/6bdc9bef-541e-45f8-ac91-b7796071aabb)
 
 
 
