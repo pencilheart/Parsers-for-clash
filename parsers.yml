@@ -40,34 +40,6 @@ parsers: # array
          - 👨‍🎤其他节点
          
 
-      # - name: 🎎YouTube
-      #   type: select
-      #   proxies:
-      #    - 🥷PROXY
-      #    - DIRECT
-      #    - 🇭🇰香港
-      #    - 🐳台湾
-      #    - 🇯🇵日本
-      #    - 🇸🇬新加坡
-      #    - 🇰🇷韩国
-      #    - 🇺🇸美国
-      #    - 👨‍🎤其他节点
-         
-
-      - name: 🤖OpenAI
-        type: select
-        proxies:
-         - 🇺🇸美国
-         - 🥷PROXY
-         - DIRECT
-         - 🇭🇰香港
-         - 🐳台湾
-         - 🇯🇵日本
-         - 🇸🇬新加坡
-         - 🇰🇷韩国
-         - 👨‍🎤其他节点
-         
-
       - name: 🚅Google
         type: select
         proxies:
@@ -82,20 +54,6 @@ parsers: # array
          - 👨‍🎤其他节点
 
 
-      # - name: 📽Netflix
-      #   type: select
-      #   proxies:
-      #    - 🥷PROXY
-      #    - DIRECT
-      #    - 🇭🇰香港
-      #    - 🐳台湾
-      #    - 🇯🇵日本
-      #    - 🇸🇬新加坡
-      #    - 🇰🇷韩国
-      #    - 🇺🇸美国
-      #    - 👨‍🎤其他节点
-      
-         
       - name: 🔍Bing
         type: select
         proxies:
@@ -109,11 +67,26 @@ parsers: # array
          - 🇺🇸美国
          - 👨‍🎤其他节点
 
+
+      - name: 🤖OpenAI
+        type: select
+        proxies:
+         - 🇺🇸美国
+         - 🥷PROXY
+         - DIRECT
+         - 🇭🇰香港
+         - 🐳台湾
+         - 🇯🇵日本
+         - 🇸🇬新加坡
+         - 🇰🇷韩国
+         - 👨‍🎤其他节点
+
+
       - name: 📽Streaming
         type: select
         proxies:
-         - DIRECT
          - 🥷PROXY
+         - DIRECT
          - 🇭🇰香港
          - 🐳台湾
          - 🇯🇵日本
@@ -226,13 +199,13 @@ parsers: # array
         - DOMAIN-KEYWORD,shapr3d,DIRECT
         - DOMAIN-KEYWORD,amysecure,🥷PROXY
         - DOMAIN-KEYWORD,iyf,📽Streaming #爱壹帆视频
-        
+        - DOMAIN-KEYWORD,sci-hub,DIRECT
+        - DOMAIN-SUFFIX,zotero.org,DIRECT
+
         # 代码库
         - DOMAIN-SUFFIX,jdev.tw,🥷PROXY
         - DOMAIN-SUFFIX,omnivore.app,🥷PROXY
-        # - RULE-SET,youtube,🎎YouTube
         - RULE-SET,streaming,📽Streaming
-        # - RULE-SET,netflix,📽Netflix
         - RULE-SET,openai,🤖OpenAI
         - RULE-SET,bing,🔍Bing
         - RULE-SET,github,👨‍💻Github
@@ -244,8 +217,6 @@ parsers: # array
         - RULE-SET,icloud,DIRECT #
         - RULE-SET,apple,DIRECT # 这三个为国内可直连地址，如果希望走代理改为🥷PROXY
         - RULE-SET,google,🚅Google # 
-        # - RULE-SET,googledrive,🚅Google # 
-        # - RULE-SET,googlesearch,🚅Google # 
         - RULE-SET,tld-not-cn,🥷PROXY
         - RULE-SET,gfw,🥷PROXY
         - RULE-SET,greatfire,🥷PROXY
@@ -283,6 +254,16 @@ parsers: # array
           path: ./ruleset/streaming.yaml
           interval: 86400
 
+        google: # Google 在中国大陆可直连的域名列表
+          type: http
+          behavior: classical
+          #url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml"
+          url: "https://git.jasuit.com/jh163888/ios_rule_script/raw/branch/master/rule/Clash/Google/Google.yaml"
+          path: ./ruleset/google.yaml
+          interval: 86400   
+        
+
+
         #原版
         reject: # 广告域名列表
           type: http
@@ -305,36 +286,6 @@ parsers: # array
           path: ./ruleset/apple.yaml
           interval: 86400
           
-
-        google: # Google 在中国大陆可直连的域名列表
-          type: http
-          behavior: classical
-          #url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml"
-          url: "https://git.jasuit.com/jh163888/ios_rule_script/raw/branch/master/rule/Clash/Google/Google.yaml"
-          path: ./ruleset/google.yaml
-          interval: 86400
-
-        #以下三条为旧版本，上条google已包含下三条
-        # google: # Google 在中国大陆可直连的域名列表
-        #   type: http
-        #   behavior: classical
-        #   url: "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.yaml"
-        #   path: ./ruleset/google.yaml
-        #   interval: 86400
-          
-        # googledrive: # 
-        #   type: http
-        #   behavior: classical
-        #   url: "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GoogleDrive/GoogleDrive.yaml"
-        #   path: ./ruleset/googledrive.yaml
-        #   interval: 86400
-
-        # googlesearch: # 
-        #   type: http
-        #   behavior: classical
-        #   url: "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GoogleSearch/GoogleSearch.yaml"
-        #   path: ./ruleset/googlesearch.yaml
-        #   interval: 86400
 
         proxy: # 代理域名列表
           type: http
@@ -406,13 +357,6 @@ parsers: # array
           path: ./ruleset/applications.yaml
           interval: 86400
 
-        # netflix: # 奈飞的分流规则
-        #   type: http
-        #   behavior: classical
-        #   url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Netflix/Netflix.yaml"
-        #   path: ./ruleset/netflix.yaml
-        #   interval: 86400
-
         bing: # Bing的分流规则
           type: http
           behavior: classical
@@ -425,15 +369,7 @@ parsers: # array
           behavior: classical
           url: "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml"
           path: ./ruleset/openai.yaml
-          interval: 86400    
-
-        # youtube: # YouTube的分流规则
-        #   type: http
-        #   behavior: classical
-        #   url: "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.yaml"
-        #   path: ./ruleset/youtube.yaml
-        #   interval: 86400    
-   
+          interval: 86400  
 
         github: # github的分流规则
           type: http
@@ -441,4 +377,3 @@ parsers: # array
           url: "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.yaml"
           path: ./ruleset/github.yaml
           interval: 86400    
-
