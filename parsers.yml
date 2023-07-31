@@ -95,12 +95,12 @@ parsers: # array
       #    - 🇺🇸美国
       #    - 👨‍🎤其他节点
       
-
-      - name: 📽影视
+         
+      - name: 🔍Bing
         type: select
         proxies:
-         - DIRECT
          - 🥷PROXY
+         - DIRECT
          - 🇭🇰香港
          - 🐳台湾
          - 🇯🇵日本
@@ -108,12 +108,12 @@ parsers: # array
          - 🇰🇷韩国
          - 🇺🇸美国
          - 👨‍🎤其他节点
-         
-      - name: 🔍Bing
+
+      - name: 📽Streaming
         type: select
         proxies:
-         - 🥷PROXY
          - DIRECT
+         - 🥷PROXY
          - 🇭🇰香港
          - 🐳台湾
          - 🇯🇵日本
@@ -225,11 +225,13 @@ parsers: # array
         - DOMAIN-KEYWORD,appstorrent,DIRECT
         - DOMAIN-KEYWORD,shapr3d,DIRECT
         - DOMAIN-KEYWORD,amysecure,🥷PROXY
-        - DOMAIN-KEYWORD,hss10,📽影视 #爱壹帆视频
+        - DOMAIN-KEYWORD,iyf,📽Streaming #爱壹帆视频
+        
         # 代码库
         - DOMAIN-SUFFIX,jdev.tw,🥷PROXY
         - DOMAIN-SUFFIX,omnivore.app,🥷PROXY
         - RULE-SET,youtube,🎎YouTube
+        - RULE-SET,streaming,📽Streaming
         # - RULE-SET,netflix,📽Netflix
         - RULE-SET,openai,🤖OpenAI
         - RULE-SET,bing,🔍Bing
@@ -242,8 +244,8 @@ parsers: # array
         - RULE-SET,icloud,DIRECT #
         - RULE-SET,apple,DIRECT # 这三个为国内可直连地址，如果希望走代理改为🥷PROXY
         - RULE-SET,google,🚅Google # 
-        - RULE-SET,googledrive,🚅Google # 
-        - RULE-SET,googlesearch,🚅Google # 
+        # - RULE-SET,googledrive,🚅Google # 
+        # - RULE-SET,googlesearch,🚅Google # 
         - RULE-SET,tld-not-cn,🥷PROXY
         - RULE-SET,gfw,🥷PROXY
         - RULE-SET,greatfire,🥷PROXY
@@ -271,6 +273,17 @@ parsers: # array
 
   # 添加规则集
       mix-rule-providers: 
+        
+        #pencilheart自用
+        streaming: # 国外流媒体
+          type: http
+          behavior: classical
+          #url: "https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/StreamingMedia/Streaming.yaml"
+          url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GlobalMedia/GlobalMedia_Classical.yaml"
+          path: ./ruleset/streaming.yaml
+          interval: 86400
+
+        #原版
         reject: # 广告域名列表
           type: http
           behavior: domain
@@ -292,26 +305,35 @@ parsers: # array
           path: ./ruleset/apple.yaml
           interval: 86400
           
+
         google: # Google 在中国大陆可直连的域名列表
           type: http
           behavior: classical
-          url: "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.yaml"
+          url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml"
           path: ./ruleset/google.yaml
           interval: 86400
-          
-        googledrive: # 
-          type: http
-          behavior: classical
-          url: "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GoogleDrive/GoogleDrive.yaml"
-          path: ./ruleset/googledrive.yaml
-          interval: 86400
 
-        googlesearch: # 
-          type: http
-          behavior: classical
-          url: "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GoogleSearch/GoogleSearch.yaml"
-          path: ./ruleset/googlesearch.yaml
-          interval: 86400
+        #以下三条为旧版本，上条google已包含下三条
+        # google: # Google 在中国大陆可直连的域名列表
+        #   type: http
+        #   behavior: classical
+        #   url: "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.yaml"
+        #   path: ./ruleset/google.yaml
+        #   interval: 86400
+          
+        # googledrive: # 
+        #   type: http
+        #   behavior: classical
+        #   url: "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GoogleDrive/GoogleDrive.yaml"
+        #   path: ./ruleset/googledrive.yaml
+        #   interval: 86400
+
+        # googlesearch: # 
+        #   type: http
+        #   behavior: classical
+        #   url: "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GoogleSearch/GoogleSearch.yaml"
+        #   path: ./ruleset/googlesearch.yaml
+        #   interval: 86400
 
         proxy: # 代理域名列表
           type: http
