@@ -278,8 +278,8 @@ parsers: # array
         streaming: # 国外流媒体
           type: http
           behavior: classical
-          #url: "https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/StreamingMedia/Streaming.yaml"
-          url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GlobalMedia/GlobalMedia_Classical.yaml"
+          #url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GlobalMedia/GlobalMedia_Classical.yaml"
+          url: "https://git.jasuit.com/jh163888/ios_rule_script/raw/branch/master/rule/Clash/GlobalMedia/GlobalMedia_Classical.yaml"
           path: ./ruleset/streaming.yaml
           interval: 86400
 
@@ -309,7 +309,8 @@ parsers: # array
         google: # Google 在中国大陆可直连的域名列表
           type: http
           behavior: classical
-          url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml"
+          #url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml"
+          url: "https://git.jasuit.com/jh163888/ios_rule_script/raw/branch/master/rule/Clash/Google/Google.yaml"
           path: ./ruleset/google.yaml
           interval: 86400
 
@@ -440,3 +441,4 @@ parsers: # array
           url: "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.yaml"
           path: ./ruleset/github.yaml
           interval: 86400    
+
