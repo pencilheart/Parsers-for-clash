@@ -82,7 +82,7 @@ parsers: # array
          - 👨‍🎤其他节点
 
 
-      - name: 📽Streaming
+      - name: 📽GlobalMedia
         type: select
         proxies:
          - 🥷PROXY
@@ -198,36 +198,28 @@ parsers: # array
         - DOMAIN-KEYWORD,appstorrent,DIRECT
         - DOMAIN-KEYWORD,shapr3d,DIRECT
         - DOMAIN-KEYWORD,amysecure,🥷PROXY
-        - DOMAIN-KEYWORD,iyf,📽Streaming #爱壹帆视频
+        - DOMAIN-KEYWORD,iyf,📽GlobalMedia #爱壹帆视频
         - DOMAIN-KEYWORD,sci-hub,DIRECT
         - DOMAIN-SUFFIX,zotero.org,DIRECT
 
         # 代码库
         - DOMAIN-SUFFIX,jdev.tw,🥷PROXY
         - DOMAIN-SUFFIX,omnivore.app,🥷PROXY
-        - RULE-SET,streaming,📽Streaming
+        - RULE-SET,GlobalMedia,📽GlobalMedia
         - RULE-SET,openai,🤖OpenAI
         - RULE-SET,bing,🔍Bing
         - RULE-SET,github,👨‍💻Github
-        - RULE-SET,applications,DIRECT
         - DOMAIN,clash.razord.top,DIRECT
         - DOMAIN,yacd.haishan.me,DIRECT
-        - RULE-SET,private,DIRECT
-        - RULE-SET,reject,🚦AD
-        - RULE-SET,icloud,DIRECT #
-        - RULE-SET,apple,DIRECT # 这三个为国内可直连地址，如果希望走代理改为🥷PROXY
-        - RULE-SET,google,🚅Google # 
-        - RULE-SET,tld-not-cn,🥷PROXY
-        - RULE-SET,gfw,🥷PROXY
-        - RULE-SET,greatfire,🥷PROXY
-        - RULE-SET,telegramcidr,🥷PROXY
-        - RULE-SET,lancidr,DIRECT
-        - RULE-SET,cncidr,DIRECT
+        - RULE-SET,privacy,🚦AD #用AD还是DIRECT?
+        - RULE-SET,AD,🚦AD
+        - RULE-SET,apple,DIRECT
+        - RULE-SET,google,🚅Google
         - GEOIP,,DIRECT
         - GEOIP,CN,DIRECT
-        - RULE-SET,direct,DIRECT
-        - RULE-SET,proxy,🥷PROXY
-        - MATCH,🐟漏网之鱼 # ⭐️⭐️规则之外的，在这里来修改是白名单模式还是黑名单模式，具体在“🐟漏网之鱼”选择代理或直连。
+        - RULE-SET,chinamax,DIRECT
+        - RULE-SET,global,🥷PROXY
+        - MATCH,🐟漏网之鱼 # ⭐️⭐️规则之外的，具体在“🐟漏网之鱼”选择代理或直连。
 
       # 添加规则集
         # DOMAIN-SUFFIX：域名后缀匹配
@@ -245,135 +237,79 @@ parsers: # array
   # 添加规则集
       mix-rule-providers: 
         
-        #pencilheart自用
-        streaming: # 国外流媒体
+        
+        AD: # 广告域名列表
           type: http
           behavior: classical
-          #url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GlobalMedia/GlobalMedia_Classical.yaml"
-          url: "https://git.jasuit.com/jh163888/ios_rule_script/raw/branch/master/rule/Clash/GlobalMedia/GlobalMedia_Classical.yaml"
-          path: ./ruleset/streaming.yaml
+          url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Advertising/Advertising_Classical.yaml"
+          path: ./ruleset/AD.yaml
           interval: 86400
-
-        google: # Google 在中国大陆可直连的域名列表
-          type: http
-          behavior: classical
-          #url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml"
-          url: "https://git.jasuit.com/jh163888/ios_rule_script/raw/branch/master/rule/Clash/Google/Google.yaml"
-          path: ./ruleset/google.yaml
-          interval: 86400   
         
 
-
-        #原版
-        reject: # 广告域名列表
-          type: http
-          behavior: domain
-          url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
-          path: ./ruleset/reject.yaml
-          interval: 86400
-          
-        icloud: # iCloud 域名列表
-          type: http
-          behavior: domain
-          url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt"
-          path: ./ruleset/icloud.yaml
-          interval: 86400
-          
-        apple: # Apple 在中国大陆可直连的域名列表
-          type: http
-          behavior: domain
-          url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt"
-          path: ./ruleset/apple.yaml
-          interval: 86400
-          
-
-        proxy: # 代理域名列表
-          type: http
-          behavior: domain
-          url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt"
-          path: ./ruleset/proxy.yaml
-          interval: 86400
-          
-        direct: # 直连域名列表
-          type: http
-          behavior: domain
-          url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt"
-          path: ./ruleset/direct.yaml
-          interval: 86400
-          
-        private: # 私有网络专用域名列表
-          type: http
-          behavior: domain
-          url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt"
-          path: ./ruleset/private.yaml
-          interval: 86400
-          
-        gfw: # GFWList 域名列表
-          type: http
-          behavior: domain
-          url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt"
-          path: ./ruleset/gfw.yaml
-          interval: 86400
-          
-        greatfire: # GreatFire 域名列表
-          type: http
-          behavior: domain
-          url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/greatfire.txt"
-          path: ./ruleset/greatfire.yaml
-          interval: 86400
-          
-        tld-not-cn: # 非中国大陆使用的顶级域名列表
-          type: http
-          behavior: domain
-          url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt"
-          path: ./ruleset/tld-not-cn.yaml
-          interval: 86400
-          
-        telegramcidr: # Telegram 使用的 IP 地址列表
-          type: http
-          behavior: ipcidr
-          url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt"
-          path: ./ruleset/telegramcidr.yaml
-          interval: 86400
-          
-        cncidr: # 中国大陆 IP 地址列表
-          type: http
-          behavior: ipcidr
-          url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt"
-          path: ./ruleset/cncidr.yaml
-          interval: 86400
-          
-        lancidr: # 局域网 IP 及保留 IP 地址列表
-          type: http
-          behavior: ipcidr
-          url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt"
-          path: ./ruleset/lancidr.yaml
-          interval: 86400
-          
-        applications: # 需要直连的常见软件列表
+        privacy: # 隐私域名列表
           type: http
           behavior: classical
-          url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt"
-          path: ./ruleset/applications.yaml
+          url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Privacy/Privacy_Classical.yaml"
+          path: ./ruleset/privacy.yaml
+          interval: 86400  
+
+
+        global: # 全球代理域名列表
+          type: http
+          behavior: classical
+          url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Global/Global_Classical.yaml"
+          path: ./ruleset/global.yaml
           interval: 86400
+
+
+        GlobalMedia: # 国外流媒体
+          type: http
+          behavior: classical
+          url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GlobalMedia/GlobalMedia_Classical.yaml"
+          path: ./ruleset/GlobalMedia.yaml
+          interval: 86400
+
+
+        google: # Google域名列表
+          type: http
+          behavior: classical
+          url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.yaml"
+          path: ./ruleset/google.yaml
+          interval: 86400   
+          
+          
+        chinamax: # 中国大陆直连列表
+          type: http
+          behavior: classical
+          url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml"
+          path: ./ruleset/chinamax.yaml
+          interval: 86400
+         
+
+        apple: # Apple域名列表
+          type: http
+          behavior: classical
+          url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple_Classical.yaml"
+          path: ./ruleset/apple.yaml
+          interval: 86400 
 
         bing: # Bing的分流规则
           type: http
           behavior: classical
-          url: "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bing/Bing.yaml"
+          url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bing/Bing.yaml"
           path: ./ruleset/bing.yaml
           interval: 86400
 
         openai: # OpenAI的分流规则
           type: http
           behavior: classical
-          url: "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml"
+          url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml"
           path: ./ruleset/openai.yaml
           interval: 86400  
 
         github: # github的分流规则
           type: http
           behavior: classical
-          url: "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.yaml"
+          url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.yaml"
           path: ./ruleset/github.yaml
           interval: 86400    
