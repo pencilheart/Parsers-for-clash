@@ -1,4 +1,4 @@
-# Parsers for clash  
+# Parsers for clash
  
 # 主要功能特色
 - 自带测速选择（机场各节点）
@@ -12,20 +12,19 @@
     - 其它
 - 可独立选择机场
     - Openai
-    - Bing（2023-04-08添加，可用new bing）
-    - Google（2023-05-06添加，强化谷歌线路的一致化，可以找Bard聊天了💬）
+    - Bing
+    - Google
     - YouTube
     - GitHub
-- 广告屏蔽
+- 视频等大流量走GlobalMedia
 
 # 界面效果
-![界面效果图](https://github.com/pencilheart/Parsers-for-clash/assets/61617063/6bdc9bef-541e-45f8-ac91-b7796071aabb)
-
+![界面效果图](https://github.com/pencilheart/Parsers-for-clash/assets/61617063/e313f7bb-5a2a-4a5b-8f1f-38d16eec05b0)
 
 
 # 用法
 直接复制parsers.yml的内容到clash的“setting--profiles--parsers”中，执行“profiles”的连接更新即可
-ps：我用的是Clash for Windows
+
 ![image](https://github.com/iczrac/Parsers-for-clash/assets/73928031/2cf51196-ded5-4cfe-b78b-445410a05bd2)
 
 # [safari翻译失效](https://github.com/ripperhe/Bob/issues/405)
