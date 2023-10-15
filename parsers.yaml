@@ -188,16 +188,25 @@ parsers: # array
   # 添加规则
       prepend-rules: # 规则由上往下遍历，如上面规则已经命中，则不再往下处理
         # pencilheart自用
-        - DOMAIN-KEYWORD,appstorrent,DIRECT
-        - DOMAIN-KEYWORD,shapr3d,DIRECT
-        - DOMAIN-KEYWORD,amysecure,🥷PROXY
-        - DOMAIN-KEYWORD,iyf,📽GlobalMedia #爱壹帆视频
-        - DOMAIN-KEYWORD,sci-hub,DIRECT
-        - DOMAIN-SUFFIX,zotero.org,DIRECT
+        - DOMAIN-KEYWORD,appstorrent,DIRECT #appstorrent官网
         - DOMAIN,vk.com,DIRECT #appstorrent下载
-        - DOMAIN,v2ex.com,DIRECT
-        - DOMAIN,olympus-ims.com,🥷PROXY #3D共聚焦官网
+        - DOMAIN,psv4.userapi.com,DIRECT #appstorrent下载网盘
+        - DOMAIN,sun6-23.userapi.com,DIRECT #appstorrent下载网盘
+
+        - DOMAIN-KEYWORD,shapr3d,DIRECT
+        - DOMAIN-KEYWORD,sci-hub,DIRECT
+        - DOMAIN-KEYWORD,zotero.org,DIRECT
+
+        - DOMAIN-KEYWORD,iyf,📽GlobalMedia #爱壹帆视频
+
+        - DOMAIN,www.v2ex.com,🥷PROXY
+        - DOMAIN-KEYWORD,amysecure,🥷PROXY
         # - DOMAIN,community.visualdatatools.com,🥷PROXY #Datagraph社区
+        - DOMAIN,dergipark.org.tr,🥷PROXY #学术
+        - DOMAIN-KEYWORD,flow3d,🥷PROXY #FLOW3D
+        - DOMAIN,www.editor.citationstyles.org,🥷PROXY #CSL-style-edit
+        - DOMAIN-KEYWORD,olympus-ims.com,🥷PROXY #3D共聚焦官网
+
 
         # 代码库
         - DOMAIN-SUFFIX,jdev.tw,🥷PROXY
