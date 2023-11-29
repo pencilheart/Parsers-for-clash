@@ -12,138 +12,21 @@ parsers: # array
   # 建立自己的配置
     yaml:
       prepend-proxy-groups: # 建立策略组
-      - name: 🥷PROXY
-        type: select
-        url: http://www.google.com/generate_204
-        interval: 300
-        proxies:
-         - 🇭🇰香港
-         - 🐳台湾
-         - 🇯🇵日本
-         - 🇸🇬新加坡
-         - 🇰🇷韩国
-         - 🇺🇸美国
-         - 👨‍🎤其他节点
-         - DIRECT 
-
-      - name: 👨‍💻Github
-        type: select
-        proxies:
-         - 🥷PROXY
-         - DIRECT
-         - 🇭🇰香港
-         - 🐳台湾
-         - 🇯🇵日本
-         - 🇸🇬新加坡
-         - 🇰🇷韩国
-         - 🇺🇸美国
-         - 👨‍🎤其他节点
-         
-
-      - name: 🚅Google
-        type: select
-        proxies:
-         - 🥷PROXY
-         - DIRECT
-         - 🇭🇰香港
-         - 🐳台湾
-         - 🇯🇵日本
-         - 🇸🇬新加坡
-         - 🇰🇷韩国
-         - 🇺🇸美国
-         - 👨‍🎤其他节点
-
-
-      - name: 🔍Bing
-        type: select
-        proxies:
-         - 🥷PROXY
-         - DIRECT
-         - 🇭🇰香港
-         - 🐳台湾
-         - 🇯🇵日本
-         - 🇸🇬新加坡
-         - 🇰🇷韩国
-         - 🇺🇸美国
-         - 👨‍🎤其他节点
-
-
-      - name: 🤖OpenAI
-        type: select
-        proxies:
-         - 🇺🇸美国
-         - 🥷PROXY
-         - DIRECT
-         - 🇭🇰香港
-         - 🐳台湾
-         - 🇯🇵日本
-         - 🇸🇬新加坡
-         - 🇰🇷韩国
-         - 👨‍🎤其他节点
-
-
-      - name: 📽GlobalMedia
-        type: select
-        proxies:
-         - 🥷PROXY
-         - DIRECT
-         - 🇭🇰香港
-         - 🐳台湾
-         - 🇯🇵日本
-         - 🇸🇬新加坡
-         - 🇰🇷韩国
-         - 🇺🇸美国
-         - 👨‍🎤其他节点
-         
-
-      - name: 🐟漏网之鱼
-        type: select
-        proxies:
-         - DIRECT
-         - 🥷PROXY
-         - 🇭🇰香港
-         - 🐳台湾
-         - 🇯🇵日本
-         - 🇸🇬新加坡
-         - 🇰🇷韩国
-         - 🇺🇸美国
-         - 👨‍🎤其他节点 
-
-               
-      - name: 🇭🇰香港
-        type: url-test
-        url: http://www.google.com/generate_204
-        interval: 300
+      - {name: 🥷PROXY, type: fallback, url: http://www.google.com/generate_204, interval: 300, proxies: [🇭🇰香港, 🇺🇸美国, 🐳台湾, 🇯🇵日本, 🇸🇬新加坡, 🇰🇷韩国]}
+      - {name: 👨‍💻Github, type: select, proxies: [🥷PROXY, DIRECT, 🇭🇰香港, 🇺🇸美国, 🐳台湾, 🇯🇵日本, 🇸🇬新加坡, 🇰🇷韩国, 👨‍🎤其他节点]}
+      - {name: 🚅Google, type: select, proxies: [🥷PROXY, DIRECT, 🇭🇰香港, 🇺🇸美国, 🐳台湾, 🇯🇵日本, 🇸🇬新加坡, 🇰🇷韩国, 👨‍🎤其他节点]}
+      - {name: 🔍Bing, type: select, proxies: [🥷PROXY, DIRECT, 🇭🇰香港, 🇺🇸美国, 🐳台湾, 🇯🇵日本, 🇸🇬新加坡, 🇰🇷韩国, 👨‍🎤其他节点]}
+      - {name: 🤖OpenAI, type: select, proxies: [🇺🇸美国, 🥷PROXY, DIRECT, 🇭🇰香港, 🐳台湾, 🇯🇵日本, 🇸🇬新加坡, 🇰🇷韩国, 👨‍🎤其他节点]}
+      - {name: 📽GlobalMedia, type: select, proxies: [🥷PROXY, DIRECT, 🇭🇰香港, 🇺🇸美国, 🐳台湾, 🇯🇵日本, 🇸🇬新加坡, 🇰🇷韩国, 👨‍🎤其他节点]}
+      - {name: 🐟漏网之鱼, type: select, proxies: [DIRECT, 🥷PROXY, 🇭🇰香港, 🇺🇸美国, 🐳台湾, 🇯🇵日本, 🇸🇬新加坡, 🇰🇷韩国, 👨‍🎤其他节点]}
       
-      - name: 🐳台湾
-        type: url-test
-        url: http://www.google.com/generate_204
-        interval: 300
-      
-      - name: 🇯🇵日本
-        type: url-test
-        url: http://www.google.com/generate_204
-        interval: 300
-      
-      - name: 🇸🇬新加坡
-        type: url-test
-        url: http://www.google.com/generate_204
-        interval: 300
-      
-      - name: 🇰🇷韩国
-        type: url-test
-        url: http://www.google.com/generate_204
-        interval: 300
-
-      - name: 🇺🇸美国
-        type: url-test
-        url: http://www.google.com/generate_204
-        interval: 300
-      
-      - name: 👨‍🎤其他节点
-        type: url-test
-        url: http://www.google.com/generate_204
-        interval: 300
+      - {name: 🇭🇰香港, type: url-test, url: http://www.google.com/generate_204, interval: 300}
+      - {name: 🇺🇸美国, type: url-test, url: http://www.google.com/generate_204, interval: 300}
+      - {name: 🐳台湾, type: url-test, url: http://www.google.com/generate_204, interval: 300}
+      - {name: 🇯🇵日本, type: url-test, url: http://www.google.com/generate_204, interval: 300}
+      - {name: 🇸🇬新加坡, type: url-test, url: http://www.google.com/generate_204, interval: 300}
+      - {name: 🇰🇷韩国, type: url-test, url: http://www.google.com/generate_204, interval: 300}
+      - {name: 👨‍🎤其他节点, type: url-test, url: http://www.google.com/generate_204, interval: 300}
               
   # 策略组示例
       # - name: 分组名
@@ -158,22 +41,23 @@ parsers: # array
           # - 节点名称或其他分组套娃
           
       commands:
+        - proxy-groups.🥷PROXY.proxies.0+[]proxyNames|港|香港|🇭🇰|HK|Hong Kong|美|美国|🇺🇸|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States# 向指定策略组添加订阅中的节点名，可使用正则过滤
         - proxy-groups.🇭🇰香港.proxies=[]proxyNames|港|香港|🇭🇰|HK|Hong Kong # 向指定策略组添加订阅中的节点名，可使用正则过滤
+        - proxy-groups.🇺🇸美国.proxies=[]proxyNames|美|美国|🇺🇸|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States
         - proxy-groups.🐳台湾.proxies=[]proxyNames|台|台湾|新北|彰化|TW|Taiwan
         - proxy-groups.🇯🇵日本.proxies=[]proxyNames|日|日本|🇯🇵|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan
         - proxy-groups.🇰🇷韩国.proxies=[]proxyNames|韩|韓|韩国|🇰🇷|KR|Korea|KOR|首尔
         - proxy-groups.🇸🇬新加坡.proxies=[]proxyNames|新加坡|🇸🇬|坡|狮城|SG|Singapore
-        - proxy-groups.🇺🇸美国.proxies=[]proxyNames|美|美国|🇺🇸|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States
         - proxy-groups.👨‍🎤其他节点.proxies=[]proxyNames|^[^香日台新韩美]*$ # 这个可以自定义，这个正则的意思是排除节点名字有“香日台新韩美”的节点。
         - mixed-port=7890
 
        # 为各个策略组添加一个DIRECT，避免机场节点无法匹配上面的正则筛选而导致配置出错。应该有其他办法避免，但是我不会。
         - proxy-groups.🇭🇰香港.proxies.0+REJECT
+        - proxy-groups.🇺🇸美国.proxies.0+REJECT
         - proxy-groups.🐳台湾.proxies.0+REJECT
         - proxy-groups.🇯🇵日本.proxies.0+REJECT
         - proxy-groups.🇰🇷韩国.proxies.0+REJECT
         - proxy-groups.🇸🇬新加坡.proxies.0+REJECT
-        - proxy-groups.🇺🇸美国.proxies.0+REJECT
         - proxy-groups.👨‍🎤其他节点.proxies.0+REJECT
 
         # - proxy-groups.节点名字.proxies.0+DIRECT # 向指定分组第一个位置添加一个 DIRECT 节点名
@@ -196,6 +80,7 @@ parsers: # array
         - DOMAIN-KEYWORD,shapr3d,DIRECT
         - DOMAIN-KEYWORD,sci-hub,DIRECT
         - DOMAIN-KEYWORD,zotero.org,DIRECT
+        - DOMAIN-KEYWORD,jsdelivr,DIRECT #规则集
 
         - DOMAIN-KEYWORD,iyf,📽GlobalMedia #爱壹帆视频
 
@@ -206,22 +91,22 @@ parsers: # array
         - DOMAIN-KEYWORD,flow3d,🥷PROXY #FLOW3D
         - DOMAIN,www.editor.citationstyles.org,🥷PROXY #CSL-style-edit
         - DOMAIN-KEYWORD,olympus-ims.com,🥷PROXY #3D共聚焦官网
+        - DOMAIN,macked.app,🥷PROXY #破解软件网站
+        - DOMAIN,haxmac.cc,🥷PROXY #破解软件网站
+        - DOMAIN,gitup.co,🥷PROXY #gitup软件主页
 
 
         # 代码库
-        - DOMAIN-SUFFIX,jdev.tw,🥷PROXY
-        - DOMAIN-SUFFIX,omnivore.app,🥷PROXY
+        - RULE-SET,notion,DIRECT
+        - RULE-SET,apple,DIRECT
+        - RULE-SET,chinamax,DIRECT
         - RULE-SET,GlobalMedia,📽GlobalMedia
         - RULE-SET,openai,🤖OpenAI
         - RULE-SET,bing,🔍Bing
         - RULE-SET,github,👨‍💻Github
-        - DOMAIN,clash.razord.top,DIRECT
-        - DOMAIN,yacd.haishan.me,DIRECT
-        - RULE-SET,apple,DIRECT
         - RULE-SET,google,🚅Google
         - GEOIP,,DIRECT
         - GEOIP,CN,DIRECT
-        - RULE-SET,chinamax,DIRECT
         - RULE-SET,global,🥷PROXY
         - MATCH,🐟漏网之鱼 # ⭐️⭐️规则之外的，具体在“🐟漏网之鱼”选择代理或直连。
 
@@ -301,3 +186,10 @@ parsers: # array
           url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.yaml"
           path: ./ruleset/github.yaml
           interval: 86400    
+
+        notion: # notion的分流规则
+          type: http
+          behavior: classical
+          url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Notion/Notion.yaml"
+          path: ./ruleset/github.yaml
+          interval: 86400  
